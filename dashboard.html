@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MaximizeMe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="flex justify-between container">
+        <a href="index.html" class="logo">MaximizeMe.</a>
+        <div class="flex" style="gap: 16px; align-items: center;">
+            <span class="small">Status: Available</span>
+            <div style="width: 32px; height: 32px; background: var(--surface-hover); border-radius: 50%; border: 1px solid var(--border);"></div>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout container">
+        <aside class="sidebar fade-in-up">
+            <ul>
+                <li><a href="#" class="active">Overview</a></li>
+                <li><a href="#">Active Tasks <span class="tag">2</span></a></li>
+                <li><a href="#">Past Work</a></li>
+                <li><a href="#">Wallet</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </aside>
+
+        <main class="dashboard-content">
+            <h2 class="fade-in-up delay-1">Welcome back, User.</h2>
+            
+            <div class="grid fade-in-up delay-2" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 40px;">
+                <div class="card">
+                    <p class="small">Total Earnings</p>
+                    <h2 style="margin: 8px 0;">$4,250</h2>
+                    <span class="small" style="color: #4ade80;">+12% this month</span>
+                </div>
+                <div class="card">
+                    <p class="small">Completion Rate</p>
+                    <h2 style="margin: 8px 0;">98%</h2>
+                    <span class="small">Top Rated</span>
+                </div>
+                <div class="card">
+                    <p class="small">Pending Reviews</p>
+                    <h2 style="margin: 8px 0;">1</h2>
+                    <span class="small">AI Processing...</span>
+                </div>
+            </div>
+
+            <h3 class="fade-in-up delay-3">Current Assignments</h3>
+            <div class="card fade-in-up delay-3" style="padding: 0; margin-top: 16px;">
+                <div style="padding: 16px 24px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 2fr 1fr 1fr; font-size: 0.85rem; color: var(--text-muted);">
+                    <span>Task</span>
+                    <span>Deadline</span>
+                    <span>Status</span>
+                </div>
+                <div style="padding: 24px; display: grid; grid-template-columns: 2fr 1fr 1fr; align-items: center; border-bottom: 1px solid var(--border);">
+                    <span style="font-weight: 500;">Organic Chemistry Tutor</span>
+                    <span class="small">Tomorrow, 4:00 PM</span>
+                    <span class="tag accent">In Progress</span>
+                </div>
+                <div style="padding: 24px; display: grid; grid-template-columns: 2fr 1fr 1fr; align-items: center;">
+                    <span style="font-weight: 500;">Pitch Deck Refinement</span>
+                    <span class="small">Oct 24, 2035</span>
+                    <span class="tag">Reviewing</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

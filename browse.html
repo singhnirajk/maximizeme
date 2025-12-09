@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse | MaximizeMe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="flex justify-between container">
+        <a href="index.html" class="logo">MaximizeMe.</a>
+        <div class="nav-links flex">
+            <a href="post.html">Post Task</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="container section-padding">
+        <div class="flex justify-between" style="margin-bottom: 40px; align-items: flex-end;">
+            <div>
+                <h1>Open Ledger.</h1>
+                <p>342 tasks available for execution.</p>
+            </div>
+            <div class="flex" style="gap: 12px;">
+                <button class="btn btn-secondary">Filter</button>
+                <button class="btn btn-secondary">Sort by Price</button>
+            </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));">
+            <a href="detail.html" class="card fade-in-up">
+                <div class="flex justify-between" style="margin-bottom: 16px;">
+                    <span class="tag accent">Engineering</span>
+                    <span class="small">$450</span>
+                </div>
+                <h3>Configure Google Analytics 4 Custom Events</h3>
+                <p class="small" style="margin-top: 12px; margin-bottom: 24px;">Remote • 2 Days left</p>
+                <p style="font-size: 0.9rem;">Need complex funnel tracking setup for a SaaS product. Must include GTM configuration.</p>
+            </a>
+
+            <a href="detail.html" class="card fade-in-up delay-1">
+                <div class="flex justify-between" style="margin-bottom: 16px;">
+                    <span class="tag">Design</span>
+                    <span class="small">$1,200</span>
+                </div>
+                <h3>Series A Pitch Deck Refinement</h3>
+                <p class="small" style="margin-top: 12px; margin-bottom: 24px;">Remote • 5 Days left</p>
+                <p style="font-size: 0.9rem;">Clean up 15 slides. Apply minimalist aesthetic. Data visualization required.</p>
+            </a>
+
+            <a href="detail.html" class="card fade-in-up delay-2">
+                <div class="flex justify-between" style="margin-bottom: 16px;">
+                    <span class="tag">Tutoring</span>
+                    <span class="small">$80/hr</span>
+                </div>
+                <h3>Organic Chemistry II Tutor</h3>
+                <p class="small" style="margin-top: 12px; margin-bottom: 24px;">Local (NYC) • Recurring</p>
+                <p style="font-size: 0.9rem;">Focus on reaction mechanisms and spectroscopy. Weekend availability needed.</p>
+            </a>
+             <a href="detail.html" class="card fade-in-up delay-1">
+                <div class="flex justify-between" style="margin-bottom: 16px;">
+                    <span class="tag">DevOps</span>
+                    <span class="small">$2,500</span>
+                </div>
+                <h3>Fix Backend Infrastructure Scaling</h3>
+                <p class="small" style="margin-top: 12px; margin-bottom: 24px;">Remote • Urgent</p>
+                <p style="font-size: 0.9rem;">Postgres database locking up under load. Need optimization and connection pooling setup.</p>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
