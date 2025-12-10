@@ -15,6 +15,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+}
+
 body {
     background-color: var(--bg);
     color: var(--text-main);
@@ -32,6 +36,7 @@ ul { list-style: none; }
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 .grid { display: grid; gap: 24px; }
@@ -59,12 +64,13 @@ nav {
     padding: 20px 0;
     z-index: 1000;
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
     border-bottom: 1px solid var(--border);
     background: var(--glass);
 }
 
-.logo { font-weight: 700; letter-spacing: -0.05em; font-size: 1.2rem; }
-.nav-links { gap: 32px; font-size: 0.9rem; color: var(--text-muted); }
+.logo { font-weight: 700; letter-spacing: -0.05em; font-size: 1.2rem; flex-shrink: 0; }
+.nav-links { gap: 32px; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; }
 .nav-links a:hover { color: var(--text-main); }
 
 /* Buttons */
@@ -77,6 +83,7 @@ nav {
     border: 1px solid transparent;
     cursor: pointer;
     display: inline-block;
+    white-space: nowrap; /* Prevents text wrap on mobile */
 }
 
 .btn-primary {
@@ -130,6 +137,7 @@ input, textarea, select {
     font-size: 1rem;
     transition: all 0.3s var(--ease);
     outline: none;
+    appearance: none; /* Removes native UI on mobile */
 }
 
 input:focus, textarea:focus, select:focus {
@@ -145,13 +153,16 @@ input:focus, textarea:focus, select:focus {
     background: rgba(255,255,255,0.05);
     border: 1px solid var(--border);
     color: var(--text-muted);
+    white-space: nowrap;
 }
 
 .tag.accent { border-color: var(--accent); color: var(--accent); background: rgba(99, 102, 241, 0.05); }
 
 /* --- Specific Sections --- */
 .hero {
-    height: 90vh;
+    min-height: 90vh; /* Changed from fixed height to min-height */
+    padding-top: 100px; /* Space for navbar */
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -203,9 +214,69 @@ input:focus, textarea:focus, select:focus {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- MOBILE OPTIMIZATIONS --- */
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
-    .dashboard-layout { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
-    .grid { grid-template-columns: 1fr; }
+    /* Layout Adjustments */
+    .container { padding: 0 20px; }
+    .section-padding { padding: 80px 0; }
+    
+    /* Typography Scaling */
+    h1 { font-size: 2.8rem; line-height: 1.1; }
+    h2 { font-size: 1.8rem; }
+    p { font-size: 1rem; }
+    
+    /* Navbar Mobile */
+    nav { padding: 16px 0; }
+    nav .container {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        font-size: 0.85rem;
+    }
+    
+    /* Grid Adjustments */
+    /* Forces single column on mobile for ease of reading */
+    .grid { grid-template-columns: 1fr !important; gap: 20px; }
+    
+    /* Hero Adjustments */
+    .hero { min-height: 80vh; }
+    .hero::after { width: 300px; height: 300px; } /* Smaller glow */
+    
+    /* Dashboard Mobile Layout */
+    .dashboard-layout { 
+        display: flex; 
+        flex-direction: column; 
+    }
+    
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 80px 20px 20px 20px;
+        width: 100%;
+        overflow-x: auto; /* Horizontal scroll for menu */
+    }
+    
+    .sidebar ul {
+        display: flex;
+        gap: 24px;
+        white-space: nowrap;
+    }
+    
+    .sidebar li { margin-bottom: 0; }
+    
+    .dashboard-content { padding: 40px 20px; }
+    
+    /* Card Adjustments */
+    .card { padding: 24px; }
+    
+    /* Form Adjustments */
+    .input-group input, .input-group select { font-size: 16px; } /* Prevents iOS zoom */
+    
+    /* Buttons */
+    .hero .flex { flex-direction: column; width: 100%; }
+    .hero .btn { width: 100%; margin-right: 0 !important; margin-bottom: 12px; }
 }
